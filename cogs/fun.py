@@ -14,11 +14,6 @@ class Fun(commands.Cog):
             return
         roll_result = ran.randint(1, sides)
         await ctx.send(f"{ctx.author.mention} rolled {roll_result} on a D{sides}")
-        result = ran.randint(1, 100)
-        if user is None:
-            await ctx.send(f"{ctx.author.mention} is a {result} on the Gay O' Meter")
-        else:
-            await ctx.send(f"{user.mention} is a {result} on the Gay O' Meter")
 
     # ;magic8ball {question}
     @commands.command()

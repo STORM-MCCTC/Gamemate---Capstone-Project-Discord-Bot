@@ -8,28 +8,32 @@ with open("token.txt", "r") as token_file:
     token = token_file.readline().strip()
     print(token)
 
-# Initialize the client
-client = commands.Bot(command_prefix=";", intents=discord.Intents.all())
+# Define Bot Class (No Need for CommandTree)
+class MyBot(commands.Bot):
+    def __init__(self):
+        intents = discord.Intents.all()
+        super().__init__(command_prefix=";", intents=intents)
 
-@client.event
-async def on_ready():
-    print(f'Client logged in as {client.user}')
+    async def setup_hook(self):
+        await load_cogs(self)
+        await self.tree.sync()  # Sync slash commands
+        print("Slash commands synced!")
 
 # Load all cogs in the `cogs` folder
-async def load_cogs():
+async def load_cogs(bot):
     for filename in os.listdir("./cogs"):
         if filename.endswith(".py"):
             try:
-                await client.load_extension(f"cogs.{filename[:-3]}")  # Await this
+                await bot.load_extension(f"cogs.{filename[:-3]}")
                 print(f"Loaded cog: {filename}")
             except Exception as e:
                 print(f"Failed to load cog {filename}: {e}")
 
-# Run the client
+# Run the bot
 async def main():
-    async with client:
-        await load_cogs()
-        await client.start(token)
+    bot = MyBot()
+    async with bot:
+        await bot.start(token)
 
 if __name__ == "__main__":
     asyncio.run(main())

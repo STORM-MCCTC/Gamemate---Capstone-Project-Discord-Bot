@@ -8,9 +8,9 @@ class Minecraft(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # ;serverinfo {server_address} {server_port}
+    # ;mcserverinfo {server_address} {server_port}
     @commands.command(brief="- Get server info", description="- Get detailed information about a Minecraft server")
-    async def serverinfo(self, ctx, server_address: str, server_port: int = 25565):
+    async def mcserverinfo(self, ctx, server_address: str, server_port: int = 25565):
         try:
             server = JavaServer.lookup(f"{server_address}:{server_port}", timeout=3)
             try:

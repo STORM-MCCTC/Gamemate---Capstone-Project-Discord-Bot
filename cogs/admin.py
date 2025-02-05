@@ -7,18 +7,18 @@ class Admin(commands.Cog):
         self.bot = bot
 
     # ;kick {member} {reason}
-    @commands.command(brief="Kick a user from the server", description="Kicks the specified user with an optional reason")
+    @commands.command(brief="- Kick a user from the server", description="- Kicks the specified user with an optional reason")
     @commands.has_permissions(administrator=True)
     async def kick(self, ctx, member: discord.Member, *, reason=None):
         if member == ctx.author:
-            await ctx.send("You cannot kick yourself!")
+            await ctx.send("- You cannot kick yourself!")
             return
         
         await member.kick(reason=reason)
         await ctx.send(f"{member.mention} has been kicked from the server. Reason: {reason or 'No reason provided.'}")
 
     # ;ban {member} {reason}
-    @commands.command(brief="Ban a user from the server", description="Bans the specified user with an optional reason")
+    @commands.command(brief="- Ban a user from the server", description="- Bans the specified user with an optional reason")
     @commands.has_permissions(administrator=True)
     async def ban(self, ctx, member: discord.Member, *, reason=None):
         if member == ctx.author:
@@ -29,7 +29,7 @@ class Admin(commands.Cog):
         await ctx.send(f"{member.mention} has been banned from the server. Reason: {reason or 'No reason provided.'}")
 
     # ;unban {member}
-    @commands.command(brief="Unban a previously banned user", description="Unbans the user by their name and discriminator")
+    @commands.command(brief="- Unban a previously banned user", description="- Unbans the user by their name and discriminator")
     @commands.has_permissions(administrator=True)
     async def unban(self, ctx, *, member_name):
         banned_users = await ctx.guild.bans()
@@ -45,7 +45,7 @@ class Admin(commands.Cog):
         await ctx.send(f"User {member_name}#{member_discriminator} was not found.")
 
     # ;mute {member} {duration} {reason}
-    @commands.command(brief="Mute a user in the server", description="Mutes the specified user for a certain duration")
+    @commands.command(brief="- Mute a user in the server", description="- Mutes the specified user for a certain duration")
     @commands.has_permissions(administrator=True)
     async def mute(self, ctx, member: discord.Member, duration: int = 10, *, reason=None):
         muted_role = discord.utils.get(ctx.guild.roles, name="Muted")
@@ -65,7 +65,7 @@ class Admin(commands.Cog):
 
     # ;warn {member} {reason} 
     warnings = {}  # Keep track of warnings
-    @commands.command(brief="Warn a user", description="Issues a warning to the specified user with an optional reason")
+    @commands.command(brief="- Warn a user", description="- Issues a warning to the specified user with an optional reason")
     @commands.has_permissions(administrator=True)
     async def warn(self, ctx, member: discord.Member, *, reason=None):
         if member == ctx.author:
@@ -79,7 +79,7 @@ class Admin(commands.Cog):
         await ctx.send(f"{member.mention} has been warned. Reason: {reason or 'No reason provided.'}")
 
     # ;clear {amount}
-    @commands.command(brief="Clear a number of messages in a channel", description="Clears the specified number of messages from the channel")
+    @commands.command(brief="- Clear a number of messages in a channel", description="- Clears the specified number of messages from the channel")
     @commands.has_permissions(administrator=True)
     async def clear(self, ctx, amount: int):
         if amount <= 0:

@@ -24,5 +24,6 @@ class TerrairaCommands(commands.Cog):
         url = f"https://terraria.wiki.gg/wiki/Bosses#{formatted_bossname}"
         embed = discord.Embed(description=f"[{bossname} on Terraria Wiki]({url})")
         await ctx.send(embed=embed)
+        
 async def setup(bot):
     await bot.add_cog(TerrairaCommands(bot))

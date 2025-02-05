@@ -16,7 +16,7 @@ class Fun(commands.Cog):
         await ctx.send(f"{ctx.author.mention} rolled {roll_result} on a D{sides}")
 
     # ;magic8ball {question}
-    @commands.command()
+    @commands.command(brief="- magic8ball", description="- magic8ball")
     async def magic8ball(self, ctx, question: str):
         ran_list = ["Most definitely", "Yes", "Perchance", "maybe", "Probably Not", "No", "Most Defintely Not"]
         ran_result = ran.choice(ran_list)

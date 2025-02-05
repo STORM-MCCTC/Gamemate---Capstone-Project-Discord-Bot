@@ -41,13 +41,13 @@ class Minecraft(commands.Cog):
             await ctx.send(f"Failed to retrieve server info: {e}")
 
     # ;mcwiki
-    @commands.command()
+    @commands.command(brief="- Minecraft Wiki", description="- Minecraft Wiki")
     async def mcwiki(self, ctx):
         embed = discord.Embed(description="[minecraft.wiki](https://minecraft.wiki/)")
         await ctx.send(embed=embed)
 
     # ;randommcwiki
-    @commands.command()
+    @commands.command(brief="- Random Minecraft Wiki page", description="- Random Minecraft Wiki page")
     async def ranmcwiki(self, ctx):
         embed = discord.Embed(description=f"[minecraft.wiki/random](https://minecraft.wiki/wiki/Special:Random)")
         await ctx.send(embed=embed)

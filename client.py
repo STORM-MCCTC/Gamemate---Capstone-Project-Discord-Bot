@@ -2,13 +2,14 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
+import style
 
 # Read the client token
 with open("token.txt", "r") as token_file:
     token = token_file.readline().strip()
-    print(token)
+    print(f"{style.color.BLUE}client-token: {style.color.END}{style.color.BLACK}{token}{style.color.END}")
 
-# Define Bot Class (No Need for CommandTree)
+# Define Bot Class
 class MyBot(commands.Bot):
     def __init__(self):
         intents = discord.Intents.all()
@@ -16,8 +17,9 @@ class MyBot(commands.Bot):
 
     async def setup_hook(self):
         await load_cogs(self)
-        await self.tree.sync()  # Sync slash commands
-        print("Slash commands synced!")
+        await self.tree.sync() # Sync slash commands
+        print(f"{style.color.GREEN}Slash commands synced!{style.color.END}")
+        print(f"{style.color.GREEN}Legacy commands synced!{style.color.END}")
 
 # Load all cogs in the `cogs` folder
 async def load_cogs(bot):
@@ -25,9 +27,9 @@ async def load_cogs(bot):
         if filename.endswith(".py"):
             try:
                 await bot.load_extension(f"cogs.{filename[:-3]}")
-                print(f"Loaded cog: {filename}")
+                print(f"{style.color.BLUE}Loaded cog:{style.color.END} {filename}")
             except Exception as e:
-                print(f"Failed to load cog {filename}: {e}")
+                print(f"{style.color.RED}Failed to load cog {filename}: {e}{style.color.END}")
 
 # Run the bot
 async def main():

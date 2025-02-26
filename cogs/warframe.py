@@ -4,6 +4,8 @@ import requests as req
 import random as ran
 from bs4 import BeautifulSoup
 
+cog_verison = "0.0.1"
+
 class Warframe(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

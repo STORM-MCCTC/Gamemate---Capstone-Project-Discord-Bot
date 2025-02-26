@@ -26,8 +26,14 @@ async def load_cogs(bot):
     for filename in os.listdir("./cogs"):
         if filename.endswith(".py"):
             try:
+                # Load the cog extension
                 await bot.load_extension(f"cogs.{filename[:-3]}")
-                print(f"{style.color.BLUE}Loaded cog:{style.color.END} {filename}")
+                # Access the cog and its version if available
+                cog = bot.get_cog(filename[:-3])  # Get the loaded cog by name
+                if hasattr(cog, "cog_version"):
+                    print(f"{style.color.BLUE}Loaded cog:{style.color.END} {filename} - v{cog.cog_version}")
+                else:
+                    print(f"{style.color.YELLOW}Loaded cog:{style.color.END} {filename} - Unknown version")
             except Exception as e:
                 print(f"{style.color.RED}Failed to load cog {filename}: {e}{style.color.END}")
 

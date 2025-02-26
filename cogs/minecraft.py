@@ -4,6 +4,8 @@ from discord.ext import commands
 from mcstatus import JavaServer
 import requests
 
+cog_verison = "0.0.1"
+
 class Minecraft(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

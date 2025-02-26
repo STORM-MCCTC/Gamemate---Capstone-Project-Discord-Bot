@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 
+cog_verison = "0.0.1"
+
 class Utills(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

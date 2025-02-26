@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import requests
 
+cog_verison = "0.0.1"
+
 class Roblox(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

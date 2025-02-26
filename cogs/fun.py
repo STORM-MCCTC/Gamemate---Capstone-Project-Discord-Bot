@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import random as ran
 
+cog_verison = "0.0.1"
+
 class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

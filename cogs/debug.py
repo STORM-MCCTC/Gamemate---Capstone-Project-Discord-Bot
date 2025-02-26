@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 
+cog_verison = "0.0.1"
+
 devserver = 1285212145788915772
 
 class Debug(commands.Cog):

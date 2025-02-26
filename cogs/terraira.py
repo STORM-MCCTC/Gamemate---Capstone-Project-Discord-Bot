@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 
+cog_verison = "0.0.1"
+
 class TerrairaCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -62,6 +64,6 @@ class TerrairaCommands(commands.Cog):
             await ctx.send(embed=embed)
         else:
             await ctx.send("invalid, make sure you put that in corectly")
-            
+
 async def setup(bot):
     await bot.add_cog(TerrairaCommands(bot))

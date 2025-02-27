@@ -2,9 +2,8 @@ import discord
 from discord.ext import commands
 from datetime import datetime, timedelta
 
-cog_verison = "0.0.1"
-
 class Admin(commands.Cog):
+    cog_version = "0.0.1"
     def __init__(self, bot):
         self.bot = bot
 

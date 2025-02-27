@@ -3,6 +3,7 @@ from discord.ext import commands
 import os
 import asyncio
 import style
+# import uptime
 
 # Read the client token
 with open("token.txt", "r") as token_file:
@@ -20,6 +21,7 @@ class MyBot(commands.Bot):
         await self.tree.sync() # Sync slash commands
         print(f"{style.color.GREEN}Slash commands synced!{style.color.END}")
         print(f"{style.color.GREEN}Legacy commands synced!{style.color.END}")
+        # uptime.print_uptime()
 
 # Load all cogs in the `cogs` folder
 async def load_cogs(bot):
@@ -28,14 +30,20 @@ async def load_cogs(bot):
             try:
                 # Load the cog extension
                 await bot.load_extension(f"cogs.{filename[:-3]}")
-                # Access the cog and its version if available
-                cog = bot.get_cog(filename[:-3])  # Get the loaded cog by name
-                if hasattr(cog, "cog_version"):
-                    print(f"{style.color.BLUE}Loaded cog:{style.color.END} {filename} - v{cog.cog_version}")
+
+                # Find the actual cog name from bot.cogs
+                cog_name = next((name for name in bot.cogs.keys() if name.lower() == filename[:-3].lower()), None)
+
+                if cog_name:
+                    cog = bot.get_cog(cog_name)
+                    cog_version = getattr(cog, "cog_version", "Unknown version")
+                    print(f"{style.color.BLUE}Loaded cog:{style.color.END} {filename} - v{cog_version}")
                 else:
-                    print(f"{style.color.YELLOW}Loaded cog:{style.color.END} {filename} - Unknown version")
+                    print(f"{style.color.YELLOW}Warning:{style.color.END} {filename} was loaded but not recognized as a cog.")
+
             except Exception as e:
                 print(f"{style.color.RED}Failed to load cog {filename}: {e}{style.color.END}")
+    print(f"{style.color.BLUE}Loaded cogs:{style.color.END} {bot.cogs.keys()}")
 
 # Run the bot
 async def main():

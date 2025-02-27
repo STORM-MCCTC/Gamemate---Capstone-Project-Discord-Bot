@@ -23,7 +23,6 @@ class Roblox(commands.Cog):
 
         user_id = response.json()["data"][0]["id"]
 
-        # Step 2: Get Avatar Image URL
         avatar_url = f"https://thumbnails.roblox.com/v1/users/avatar?userIds={user_id}&size=420x420&format=Png"
         avatar_response = requests.get(avatar_url)
 
@@ -39,7 +38,6 @@ class Roblox(commands.Cog):
 
         avatar_image_url = avatar_data["imageUrl"]
 
-        # Step 3: Create and Send Embed
         embed = discord.Embed(title=f"{username}'s Avatar", color=discord.Color.blue())
         embed.set_image(url=avatar_image_url)
 
@@ -51,7 +49,6 @@ class Roblox(commands.Cog):
         """Fetches Roblox user info and sends an embed with details"""
 
         try:
-            # Step 1: Get User ID from Username
             user_id_url = "https://users.roblox.com/v1/usernames/users"
             payload = {"usernames": [username], "excludeBannedUsers": True}
             headers = {"Content-Type": "application/json"}
@@ -69,7 +66,6 @@ class Roblox(commands.Cog):
 
             user_id = data["data"][0]["id"]
 
-            # Step 2: Get User Info
             user_info_url = f"https://users.roblox.com/v1/users/{user_id}"
             user_info_response = requests.get(user_info_url)
 
@@ -84,7 +80,6 @@ class Roblox(commands.Cog):
             description = user_info.get("description", "No description available.")
             banned_status = "❌ Banned" if user_info.get("isBanned", False) else "✅ Active"
 
-            # Step 3: Get Avatar Image
             avatar_url = f"https://thumbnails.roblox.com/v1/users/avatar?userIds={user_id}&size=420x420&format=Png"
             avatar_response = requests.get(avatar_url)
 
@@ -95,11 +90,10 @@ class Roblox(commands.Cog):
             avatar_data = avatar_response.json().get("data", [])
 
             if not avatar_data or avatar_data[0]["state"] != "Completed":
-                avatar_image_url = "https://tr.rbxcdn.com/empty_avatar.png"  # Default avatar if unavailable
+                avatar_image_url = "https://tr.rbxcdn.com/empty_avatar.png"
             else:
                 avatar_image_url = avatar_data[0]["imageUrl"]
 
-            # Step 4: Create Embed
             embed = discord.Embed(title=f"Roblox User Info: {display_name}", color=discord.Color.blue())
             embed.set_thumbnail(url=avatar_image_url)
             embed.add_field(name="Username", value=username, inline=True)

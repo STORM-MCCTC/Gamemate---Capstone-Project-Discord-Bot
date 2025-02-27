@@ -3,7 +3,7 @@ from discord.ext import commands
 from datetime import datetime, timedelta
 
 class Admin(commands.Cog):
-    cog_version = "0.0.1"
+    cog_version = "1.0.0"
     def __init__(self, bot):
         self.bot = bot
 

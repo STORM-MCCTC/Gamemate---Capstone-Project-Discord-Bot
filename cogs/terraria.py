@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class TerrairaCommands(commands.Cog):
+class TerrariaCommands(commands.Cog):
     cog_version = "0.0.1"
     def __init__(self, bot):
         self.bot = bot

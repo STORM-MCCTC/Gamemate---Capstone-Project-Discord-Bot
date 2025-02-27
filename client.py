@@ -3,7 +3,6 @@ from discord.ext import commands
 import os
 import asyncio
 import style
-# import uptime
 
 # Read the client token
 with open("token.txt", "r") as token_file:
@@ -21,7 +20,6 @@ class MyBot(commands.Bot):
         await self.tree.sync() # Sync slash commands
         print(f"{style.color.GREEN}Slash commands synced!{style.color.END}")
         print(f"{style.color.GREEN}Legacy commands synced!{style.color.END}")
-        # uptime.print_uptime()
 
 # Load all cogs in the `cogs` folder
 async def load_cogs(bot):

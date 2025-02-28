@@ -18,8 +18,8 @@ class MyBot(commands.Bot):
     async def setup_hook(self):
         await load_cogs(self)
         await self.tree.sync() # Sync slash commands
-        print(f"{style.color.GREEN}Slash commands synced!{style.color.END}")
-        print(f"{style.color.GREEN}Legacy commands synced!{style.color.END}")
+        print(f"{style.color.BLUE}Info:{style.color.END} {style.color.GREEN}Slash commands synced!{style.color.END}")
+        print(f"{style.color.BLUE}Info:{style.color.END} {style.color.GREEN}Legacy commands synced!{style.color.END}")
 
 # Load all cogs in the `cogs` folder
 async def load_cogs(bot):

@@ -26,10 +26,8 @@ async def load_cogs(bot):
     for filename in os.listdir("./cogs"):
         if filename.endswith(".py"):
             try:
-                # Load the cog extension
                 await bot.load_extension(f"cogs.{filename[:-3]}")
 
-                # Find the actual cog name from bot.cogs
                 cog_name = next((name for name in bot.cogs.keys() if name.lower() == filename[:-3].lower()), None)
 
                 if cog_name:

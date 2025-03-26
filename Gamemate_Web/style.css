@@ -1,0 +1,113 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed from height: 100vh; */
+    overflow: auto; /* Enables scrolling */
+}
+
+/* Main Container */
+#main_container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #2a2a2a;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Title Styling */
+#title_container {
+    margin-bottom: 15px;
+}
+
+#title_span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#title {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+#subtitle {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-top: 5px;
+}
+
+/* Description Styling */
+#discription_container {
+    margin: 15px 0;
+}
+
+#discription {
+    font-size: 1em;
+    color: #bbb;
+}
+
+/* Feature List Styling */
+#feature_list_container {
+    margin-top: 15px;
+}
+
+#feature_list {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+    color: #ddd;
+}
+
+#feature_list li {
+    padding: 5px 0;
+}
+
+#add_server {
+    width: 140px;
+    height: 40px;
+    background-color: #5865F2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#add_server:hover {
+    background-color: #4752C4;
+    transform: scale(1.05);
+}
+
+#add_server:active {
+    background-color: #3C45A5;
+    transform: scale(0.98);
+}
+
+/* command List Styling */
+#command_list_container {
+    margin-top: 15px;
+}
+
+#command_list {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+    color: #ddd;
+}
+
+#command_list li {
+    padding: 5px 0;
+}

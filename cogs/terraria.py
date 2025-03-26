@@ -3,21 +3,29 @@ from discord.ext import commands
 import style
 
 class TerrariaCommands(commands.Cog):
-    cog_version = "0.0.3"
+    cog_version = "0.0.4"
     def __init__(self, bot):
         self.bot = bot
 
     # ;terrawiki
     @commands.command()
     async def terrawiki(self, ctx):
-        embed = discord.Embed(description="[Terraria Wiki](https://terraria.wiki.gg/)")
-        await ctx.send(embed=embed)
+        try:
+            embed = discord.Embed(description="[Terraria Wiki](https://terraria.wiki.gg/)")
+            await ctx.send(embed=embed)
+        except Exception as e:
+            await ctx.send(f"something went wrong... Exception:{e}")
+            print(f"{style.color.RED}Error: {ctx.command.name} Exception: {e}{style.color.END}")
 
     # ;randomterrawiki
     @commands.command()
     async def randomterrawiki(self, ctx):
-        embed = discord.Embed(description=f"[Random Terraria Wiki Page](https://terraria.wiki.gg/wiki/Special:Random)")
-        await ctx.send(embed=embed)
+        try:
+            embed = discord.Embed(description=f"[Random Terraria Wiki Page](https://terraria.wiki.gg/wiki/Special:Random)")
+            await ctx.send(embed=embed)
+        except Exception as e:
+            await ctx.send(f"something went wrong... Exception:{e}")
+            print(f"{style.color.RED}Error: {ctx.command.name} Exception: {e}{style.color.END}")
 
     # ;bosshelp {bossname}
     @commands.command()

@@ -51,7 +51,6 @@ class Utills(commands.Cog):
             await ctx.send(f"something went wrong... Exception:{e}")
             print(f"{style.color.RED}Error: {ctx.command.name} Exception: {e}{style.color.END}")
 
-
     # ;serverinfo
     @commands.command(brief="- Displays server information", description="- Provides details about the current server.")
     async def serverinfo(self, ctx): 

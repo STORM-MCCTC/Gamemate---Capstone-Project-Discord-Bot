@@ -25,6 +25,5 @@ class Debug(commands.Cog):
             await ctx.send(f"something went wrong... Exception:{e}")
             print(f"{style.color.RED}Error: {ctx.command.name} Exception: {e}{style.color.END}")
         
-
 async def setup(bot):
     await bot.add_cog(Debug(bot))

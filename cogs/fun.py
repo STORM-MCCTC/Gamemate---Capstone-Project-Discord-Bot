@@ -4,7 +4,7 @@ import random as ran
 import style
 
 class Fun(commands.Cog):
-    cog_version = "0.1.3"
+    cog_version = "0.1.4"
     def __init__(self, bot):
         self.bot = bot
 
@@ -54,30 +54,6 @@ class Fun(commands.Cog):
                     await ctx.send(f"{user} is {meter}% on the cute o' meter. awwww")
                 elif meter <=100 and meter >= 61:
                     await ctx.send(f"{user} is {meter}% on the cute o' meter. OMG >~< YOUR SUCH A CUTIE PATOOTIE :3")
-        except Exception as e:
-            await ctx.send(f"something went wrong... Exception:{e}")
-            print(f"{style.color.RED}Error: {ctx.command.name} Exception: {e}{style.color.END}")
-
-    # ;queermeter
-    @commands.command(brief="- rates how queer you are", description="- rates how queer you are")
-    async def queermeter(self, ctx, user= None):
-
-        try:
-            meter = ran.randrange(1, 101)
-            if user == None:
-                if meter <= 30:
-                    await ctx.send(f"{ctx.author.mention} is {meter}% on the queer o' meter. most Straight person ever.")
-                elif meter <=60 and meter >= 31:
-                    await ctx.send(f"{ctx.author.mention} is {meter}% on the queer o' meter. little fruity.")
-                elif meter <=100 and meter >= 61:
-                    await ctx.send(f"{ctx.author.mention} is {meter}% on the queer o' meter. Straight up Homosexual.")
-            else:
-                if meter <= 30:
-                    await ctx.send(f"{user} is {meter}% on the queer o' meter. most Straight person ever.")
-                elif meter <=60 and meter >= 31:
-                    await ctx.send(f"{user} is {meter}% on the queer o' meter. little fruity.")
-                elif meter <=100 and meter >= 61:
-                    await ctx.send(f"{user} is {meter}% on the queer o' meter. Straight up Homosexual.")
         except Exception as e:
             await ctx.send(f"something went wrong... Exception:{e}")
             print(f"{style.color.RED}Error: {ctx.command.name} Exception: {e}{style.color.END}")

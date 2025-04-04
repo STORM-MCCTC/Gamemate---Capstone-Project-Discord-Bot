@@ -44,9 +44,3 @@ class format:
     BLINK    = '\33[5m'
     BLINK2   = '\33[6m'
     SELECTED = '\33[7m'
-
-
-
-
-
-

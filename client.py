@@ -5,9 +5,18 @@ import asyncio
 import style
 
 # Read the client token
-with open("token.txt", "r") as token_file:
-    token = token_file.readline().strip()
-    print(f"{style.color.BLUE}client-token: {style.color.END}{style.color.BLACK}{token}{style.color.END}")
+def read_line_from_file(filename, line_number):
+    with open(filename, "r") as file:
+        # Read the lines into a list
+        lines = file.readlines()
+        if 0 <= line_number < len(lines):
+            return lines[line_number].strip()
+        else:
+            return None
+
+
+line_number = 0
+token = read_line_from_file("config.txt", line_number)
 
 # Define Bot Class
 class MyBot(commands.Bot):

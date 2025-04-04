@@ -6,3 +6,5 @@ asyncio
 mcstatus
 random
 datetime
+sqlite3
+aiohttp

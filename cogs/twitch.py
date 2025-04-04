@@ -3,7 +3,6 @@ from discord.ext import commands, tasks
 import sqlite3
 import aiohttp
 
-# Twitch API credentials (Set these later)
 
 # Read the api key
 def read_line_from_file(filename, line_number):
@@ -19,6 +18,7 @@ TWITCH_API_KEY = read_line_from_file("config.txt", 1)
 TWITCH_CLIENT_ID = read_line_from_file("config.txt", 2)  
 
 class TwitchNotifications(commands.Cog):
+    cog_version = "1.0.0"
     def __init__(self, bot):
         self.bot = bot
         self.db = sqlite3.connect("twitch_notifications.db", check_same_thread=False)
